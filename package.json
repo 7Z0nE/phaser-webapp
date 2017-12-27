@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/7Z0nE/phaser-webapp#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "express-fileupload": "^0.3.0"
   }
 }
