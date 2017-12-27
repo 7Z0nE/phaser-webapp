@@ -1,0 +1,23 @@
+{
+  "name": "phaser",
+  "version": "1.0.0",
+  "description": "A web application to phase shift audio samples.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/7Z0nE/phaser-webapp.git"
+  },
+  "author": "7Z0nE, Golol",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/7Z0nE/phaser-webapp/issues"
+  },
+  "homepage": "https://github.com/7Z0nE/phaser-webapp#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
