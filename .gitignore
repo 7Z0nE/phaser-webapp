@@ -1,5 +1,6 @@
 #prod
-processor
+processor/input/*
+processor/output/*
 
 # Logs
 logs
