@@ -4,8 +4,10 @@ while true; do
 	if [ -z "$(ls -A "$path/queue")" ]; then
 		echo "affe"
 	else
-		currentFile=$(ls -t $path/queue | head -1)
-		./scripts/phase $path/queue/$currentFile $path/finished/$currentFile 120 4 32 0.8
-		rm -f $path/queue/$currentFile
+		currentToken=$(ls -t $path/queue | head -1)
+		currentConfig=$path/queue/$(currentToken)/config
+		currentData=data.wav
+		./scripts/phase $path/queue/$currentToken/$currentData $path/finished/$currentToken$currentData 120 4 32 0.8
+		rm -r -f $path/queue/$currentToken
 	fi
 done

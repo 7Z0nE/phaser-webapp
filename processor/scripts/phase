@@ -1,0 +1,21 @@
+#!/bin/bash
+input_file=$1;
+output_file=$2;
+bpm=$3;
+length=$4;
+repetitions=$5;
+speedup=$6;
+
+calculated_length=$(echo "scale=6;$length*60/$bpm" | bc);
+ffmpeg -i $input_file -ss 00:00:00 -t $(date -u -d@$calculated_length +"%H:%M:%S.%6N") -async 1 -c copy ./tmp_output1.wav
+for ((c=1; c<=$repetitions; c++ )); do printf "file '%s'\n" tmp_output1.wav >> ./tmp_list.txt; done
+ffmpeg -f concat -i ./tmp_list.txt -c copy ./tmp_output2.wav
+ffmpeg -i ./tmp_output2.wav -filter:a "atempo=$speedup" -vn ./tmp_output3.wav
+ffmpeg -y -i ./tmp_output2.wav -i ./tmp_output3.wav -filter_complex amerge -ac 2 -c:a libmp3lame -q:a 4 $output_file
+
+rm -f ./tmp_output1.wav
+rm -f ./tmp_output2.wav
+rm -f ./tmp_output3.wav
+rm -f ./tmp_list.txt
+echo $calculated_length
+echo $(date -u -d@$calculated_length +"%H:%M:%S.%6N")
