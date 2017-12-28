@@ -1,4 +1,8 @@
 handleSubmit(event) {
+
+}
+
+updateOutput(target, token) {
    
 }
 
