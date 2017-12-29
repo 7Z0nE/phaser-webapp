@@ -86,8 +86,8 @@ app.post('/upload', (req, res) => {
             fs.rmdirSync(token);
             return res.status(500).send(err);
         }
-        return res.status(202).send(token);
     });
+    return res.status(202).send(token);
 });
 
 console.log("Starting processor with " + 'bash ' 
