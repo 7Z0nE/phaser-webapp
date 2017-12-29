@@ -5,10 +5,10 @@ const spawn = require('child_process').spawn;
 const fs = require('fs');
 const util = require('util');
 
-const processorPath = '/processor/';
+const processorPath = 'processor/';
 const processorExec = processorPath + 'processor.sh';
-const processorQueuePath = 'processor/queue/';
-const processorOutPath = 'processor/finished/';
+const processorQueuePath = processorPath+'queue/';
+const processorOutPath = processorPath+'finished/';
 
 const app = express();
 const tokenGenerator = new TokenGenerator();
@@ -79,7 +79,6 @@ app.post('/upload', (req, res) => {
             fs.rmdirSync(token);
             return res.status(500).send(err);
         }
-        return res.status(202).send(token);
     });
 
     fs.renameSync(token, processorQueuePath+token, (err) => {
@@ -87,6 +86,7 @@ app.post('/upload', (req, res) => {
             fs.rmdirSync(token);
             return res.status(500).send(err);
         }
+        return res.status(202).send(token);
     });
 });
 
@@ -94,9 +94,9 @@ console.log("Starting processor with " + 'bash '
     + processorExec + " in "
     + __dirname + processorPath);
 const processor = spawn('bash',
-    args=[__dirname + processorExec, __dirname + processorPath],
+    args=[__dirname +'/'+ processorExec, __dirname +'/'+ processorPath],
     { 
-        cwd: __dirname + processorPath
+        cwd: __dirname +'/'+ processorPath
     }
     );
 

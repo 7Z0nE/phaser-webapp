@@ -22,3 +22,20 @@
 .hoverclass:hover {
    opacity: 0.9;
 }
+
+body {
+    background-image: url('Free-Cool-Background.jpg');
+    background-size: auto;
+    width: 100%;
+    height: 100%;
+}
+
+#box {
+    width: 50%;
+    margin: auto;
+    justify-content: "center";
+}
+
+#box input {
+    width: 100%;
+}

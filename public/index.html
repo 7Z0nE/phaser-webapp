@@ -1,43 +1,34 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <script src="myscripts.js"></script>
-      <link rel="stylesheet" type="text/css" href="index.css">
-   </head>
 
-   <body style="background-color: rgba(20, 20, 20, 1);">
-      <img src="Free-Cool-Background.jpg" style="position: absolute; width: 100%; height: 100%">
-      <div id = "box" style="position: absolute; width: 100%; display: flex; justify-content: center">
-         <form id = "form"
-               style = "width: 500px;"
-               class = "font"
-               action='http://localhost:8000/upload'
-               method='post'
-               encType="multipart/form-data">
-            <p>file</p>
-            <input   type = "file" name = "file"
-                     class = "line font">
-            <p>beats per minute</p>
-            <input   type = "text" name = "bpm"
-                     class = "line font hoverclass">
-            <p>beats in file</p>
-            <input   type = "text" name = "length"
-                     class = "line font hoverclass">
-            <p>number of repetitions</p>
-            <input   type = "text" name = "repetitions"
-                     class = "line font hoverclass">
-            <p>speed factor</p>
-            <input   type = "text" name = "factor"
-                     class = "line font hoverclass">
-            <br>
-            <br>
-            <input   type = "submit" name = "submit"
-                     class = "line font hoverclass">
-         </form>
-    </form>
-  </body>
+<head>
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<script src="index.js"></script>
+
+<body style="background-color: rgba(20, 20, 20, 1);">
+  <div id="status" class="font">
+    
+  </div>
+  <div id="box" class="font">
+    <p>file</p>
+    <input type="file" name="file" id="inputFile" class="line font">
+    <p>beats per minute</p>
+    <input type="text" name="bpm" id="inputBpm" class="line font hoverclass">
+    <p>beats in file</p>
+    <input type="text" name="length" id="inputLength" class="line font hoverclass">
+    <p>number of repetitions</p>
+    <input type="text" name="repetitions" id="inputRepetitions" class="line font hoverclass">
+    <p>speed factor</p>
+    <input type="text" name="factor" id="inputFactor" class="line font hoverclass">
+    <br>
+    <br>
+    <input value="submit" type="button" onclick="submitForm()" name="submit" id="submit" class="line font hoverclass">
+  </div>
+</body>
+
 </html>
-      </div>
-   </body>
+</div>
+</body>
 
 </html>
